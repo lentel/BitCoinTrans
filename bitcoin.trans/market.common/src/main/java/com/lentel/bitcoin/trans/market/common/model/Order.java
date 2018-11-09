@@ -1,15 +1,13 @@
 /**
  * 
  */
-package com.lentel.bitcoin.trans.market.huobi.model;
+package com.lentel.bitcoin.trans.market.common.model;
 
 /**
  * @author lentel
- * 
- * @Modefy time : 2018-11-8 13:47:42
  *
  */
-public class Order {
+public abstract class Order {
 	
 	public String orderId;
 	
@@ -80,13 +78,13 @@ public class Order {
 	public void setOrderInfo(String orderInfo) {
 		this.orderInfo = orderInfo;
 	}
+	
+	
 
 	@Override
 	public String toString() {
 		return "Order [orderId=" + orderId + ", method=" + method + ", symbol=" + symbol + ", price=" + price
 				+ ", volume=" + volume + ", orderStatus=" + orderStatus + ", orderInfo=" + orderInfo + "]";
 	}
-	
-	
 
 }

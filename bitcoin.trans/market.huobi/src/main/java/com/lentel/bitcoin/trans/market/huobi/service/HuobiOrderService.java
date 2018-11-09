@@ -1,6 +1,8 @@
 package com.lentel.bitcoin.trans.market.huobi.service;
 
-public interface OrderService {
+import com.lentel.bitcoin.trans.market.common.service.*;
+
+public interface HuobiOrderService extends OrderService {
 	
 	public String createOrder(String symbol, String method, float price, float volume);
 

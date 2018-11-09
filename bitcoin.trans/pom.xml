@@ -7,5 +7,6 @@
   <name>bitcoin.trans</name>
   <modules>
   	<module>market.huobi</module>
+  	<module>market.common</module>
   </modules>
 </project>

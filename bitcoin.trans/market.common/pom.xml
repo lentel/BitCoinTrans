@@ -5,17 +5,6 @@
     <artifactId>bitcoin.trans</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>market.huobi</artifactId>
-  <name>market.huobi</name>
-  
-  
-  <dependencies>
-     <dependency> 
-	     <groupId>com.lentel</groupId>
-	     <artifactId>market.common</artifactId>
-	     <version>0.0.1-SNAPSHOT</version>
-     </dependency> 
-  </dependencies>
-  
-  
+  <artifactId>market.common</artifactId>
+  <name>market.common</name>
 </project>

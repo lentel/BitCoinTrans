@@ -9,12 +9,12 @@ package com.lentel.bitcoin.trans.market.common.service;
  */
 public interface OrderService {
 	
-	abstract String createOrder(String symbol, String method, float price, float volume);
+	public String createOrder(String symbol, String method, float price, float volume);
 
-	abstract String getOrderStatus(String orderId);
+	public String getOrderStatus(String orderId);
 	
-	abstract boolean cancelOrder(String orderId);
+	public boolean cancelOrder(String orderId);
 	
-	abstract <T> T getOrderInfo(String orderId);
+	public <T> T getOrderInfo(String orderId);
 
 }

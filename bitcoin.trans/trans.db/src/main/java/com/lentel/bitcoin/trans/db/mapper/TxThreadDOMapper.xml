@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lentel.bitcoin.trans.db.dao.TxThreadDOMapper">
+  <resultMap id="BaseResultMap" type="com.lentel.bitcoin.trans.db.model.TxThreadDO">
+    <id column="USER" jdbcType="VARCHAR" property="user" />
+    <id column="MARKET_1" jdbcType="VARCHAR" property="market1" />
+    <id column="MARKET_2" jdbcType="VARCHAR" property="market2" />
+    <id column="SYMBOL" jdbcType="VARCHAR" property="symbol" />
+    <result column="APP_KEY_1" jdbcType="VARCHAR" property="appKey1" />
+    <result column="SECRET_KEY_1" jdbcType="VARCHAR" property="secretKey1" />
+    <result column="APP_KEY_2" jdbcType="VARCHAR" property="appKey2" />
+    <result column="SECRET_KEY_2" jdbcType="VARCHAR" property="secretKey2" />
+    <result column="PRICE_DEG" jdbcType="INTEGER" property="priceDeg" />
+    <result column="VOLUME_DEG" jdbcType="INTEGER" property="volumeDeg" />
+    <result column="TRANS_PER" jdbcType="REAL" property="transPer" />
+    <result column="IS_PROCESS" jdbcType="CHAR" property="isProcess" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER, MARKET_1, MARKET_2, SYMBOL, APP_KEY_1, SECRET_KEY_1, APP_KEY_2, SECRET_KEY_2, 
+    PRICE_DEG, VOLUME_DEG, TRANS_PER, IS_PROCESS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.lentel.bitcoin.trans.db.model.TxThreadDOKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_tx_thread
+    where USER = #{user,jdbcType=VARCHAR}
+      and MARKET_1 = #{market1,jdbcType=VARCHAR}
+      and MARKET_2 = #{market2,jdbcType=VARCHAR}
+      and SYMBOL = #{symbol,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.lentel.bitcoin.trans.db.model.TxThreadDOKey">
+    delete from t_tx_thread
+    where USER = #{user,jdbcType=VARCHAR}
+      and MARKET_1 = #{market1,jdbcType=VARCHAR}
+      and MARKET_2 = #{market2,jdbcType=VARCHAR}
+      and SYMBOL = #{symbol,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lentel.bitcoin.trans.db.model.TxThreadDO">
+    insert into t_tx_thread (USER, MARKET_1, MARKET_2, 
+      SYMBOL, APP_KEY_1, SECRET_KEY_1, 
+      APP_KEY_2, SECRET_KEY_2, PRICE_DEG, 
+      VOLUME_DEG, TRANS_PER, IS_PROCESS
+      )
+    values (#{user,jdbcType=VARCHAR}, #{market1,jdbcType=VARCHAR}, #{market2,jdbcType=VARCHAR}, 
+      #{symbol,jdbcType=VARCHAR}, #{appKey1,jdbcType=VARCHAR}, #{secretKey1,jdbcType=VARCHAR}, 
+      #{appKey2,jdbcType=VARCHAR}, #{secretKey2,jdbcType=VARCHAR}, #{priceDeg,jdbcType=INTEGER}, 
+      #{volumeDeg,jdbcType=INTEGER}, #{transPer,jdbcType=REAL}, #{isProcess,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lentel.bitcoin.trans.db.model.TxThreadDO">
+    insert into t_tx_thread
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="user != null">
+        USER,
+      </if>
+      <if test="market1 != null">
+        MARKET_1,
+      </if>
+      <if test="market2 != null">
+        MARKET_2,
+      </if>
+      <if test="symbol != null">
+        SYMBOL,
+      </if>
+      <if test="appKey1 != null">
+        APP_KEY_1,
+      </if>
+      <if test="secretKey1 != null">
+        SECRET_KEY_1,
+      </if>
+      <if test="appKey2 != null">
+        APP_KEY_2,
+      </if>
+      <if test="secretKey2 != null">
+        SECRET_KEY_2,
+      </if>
+      <if test="priceDeg != null">
+        PRICE_DEG,
+      </if>
+      <if test="volumeDeg != null">
+        VOLUME_DEG,
+      </if>
+      <if test="transPer != null">
+        TRANS_PER,
+      </if>
+      <if test="isProcess != null">
+        IS_PROCESS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="user != null">
+        #{user,jdbcType=VARCHAR},
+      </if>
+      <if test="market1 != null">
+        #{market1,jdbcType=VARCHAR},
+      </if>
+      <if test="market2 != null">
+        #{market2,jdbcType=VARCHAR},
+      </if>
+      <if test="symbol != null">
+        #{symbol,jdbcType=VARCHAR},
+      </if>
+      <if test="appKey1 != null">
+        #{appKey1,jdbcType=VARCHAR},
+      </if>
+      <if test="secretKey1 != null">
+        #{secretKey1,jdbcType=VARCHAR},
+      </if>
+      <if test="appKey2 != null">
+        #{appKey2,jdbcType=VARCHAR},
+      </if>
+      <if test="secretKey2 != null">
+        #{secretKey2,jdbcType=VARCHAR},
+      </if>
+      <if test="priceDeg != null">
+        #{priceDeg,jdbcType=INTEGER},
+      </if>
+      <if test="volumeDeg != null">
+        #{volumeDeg,jdbcType=INTEGER},
+      </if>
+      <if test="transPer != null">
+        #{transPer,jdbcType=REAL},
+      </if>
+      <if test="isProcess != null">
+        #{isProcess,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lentel.bitcoin.trans.db.model.TxThreadDO">
+    update t_tx_thread
+    <set>
+      <if test="appKey1 != null">
+        APP_KEY_1 = #{appKey1,jdbcType=VARCHAR},
+      </if>
+      <if test="secretKey1 != null">
+        SECRET_KEY_1 = #{secretKey1,jdbcType=VARCHAR},
+      </if>
+      <if test="appKey2 != null">
+        APP_KEY_2 = #{appKey2,jdbcType=VARCHAR},
+      </if>
+      <if test="secretKey2 != null">
+        SECRET_KEY_2 = #{secretKey2,jdbcType=VARCHAR},
+      </if>
+      <if test="priceDeg != null">
+        PRICE_DEG = #{priceDeg,jdbcType=INTEGER},
+      </if>
+      <if test="volumeDeg != null">
+        VOLUME_DEG = #{volumeDeg,jdbcType=INTEGER},
+      </if>
+      <if test="transPer != null">
+        TRANS_PER = #{transPer,jdbcType=REAL},
+      </if>
+      <if test="isProcess != null">
+        IS_PROCESS = #{isProcess,jdbcType=CHAR},
+      </if>
+    </set>
+    where USER = #{user,jdbcType=VARCHAR}
+      and MARKET_1 = #{market1,jdbcType=VARCHAR}
+      and MARKET_2 = #{market2,jdbcType=VARCHAR}
+      and SYMBOL = #{symbol,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lentel.bitcoin.trans.db.model.TxThreadDO">
+    update t_tx_thread
+    set APP_KEY_1 = #{appKey1,jdbcType=VARCHAR},
+      SECRET_KEY_1 = #{secretKey1,jdbcType=VARCHAR},
+      APP_KEY_2 = #{appKey2,jdbcType=VARCHAR},
+      SECRET_KEY_2 = #{secretKey2,jdbcType=VARCHAR},
+      PRICE_DEG = #{priceDeg,jdbcType=INTEGER},
+      VOLUME_DEG = #{volumeDeg,jdbcType=INTEGER},
+      TRANS_PER = #{transPer,jdbcType=REAL},
+      IS_PROCESS = #{isProcess,jdbcType=CHAR}
+    where USER = #{user,jdbcType=VARCHAR}
+      and MARKET_1 = #{market1,jdbcType=VARCHAR}
+      and MARKET_2 = #{market2,jdbcType=VARCHAR}
+      and SYMBOL = #{symbol,jdbcType=VARCHAR}
+  </update>
+</mapper>

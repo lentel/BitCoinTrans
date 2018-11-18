@@ -19,6 +19,12 @@
     USER, MARKET_1, MARKET_2, SYMBOL, APP_KEY_1, SECRET_KEY_1, APP_KEY_2, SECRET_KEY_2, 
     PRICE_DEG, VOLUME_DEG, TRANS_PER, IS_PROCESS
   </sql>
+  
+  <select id="getCount" resultType="Integer">
+  	select count(*)
+  	from t_tx_thread  
+  </select>
+  
   <select id="selectByPrimaryKey" parameterType="com.lentel.bitcoin.trans.db.model.TxThreadDOKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

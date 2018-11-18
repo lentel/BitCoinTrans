@@ -12,6 +12,7 @@
 		<module>market.common</module>
 		<module>monitor</module>
 		<module>trans.db</module>
+		<module>trans.common</module>
 	</modules>
 
 	<dependencyManagement>
